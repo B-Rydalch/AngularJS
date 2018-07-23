@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>graph</title>
+    <link rel="stylesheet" type="text/css" href="edit.component.css">
+</head>
+
+<body>
+    <div class="editor">
+        <h3>
+            <u>Edit Biblo's Info</u>
+        </h3>
+        <h3 *ngIf="edited" (click)="toggleEditor()">
+            <u>New Info</u>
+        </h3>
+        <table>
+            <form name="myform">
+                <tr>
+                    <td><label>Name: </label></td>
+                    <td><label (click)="toggleEditor()">Name: {{ name }} </label></td>
+                </tr>
+                <input type="text" name="name" [(ngModel)]="name" /><br>
+                <tr>
+                    <td><label>Email: </label></td>
+                    <td><label (click)="toggleEditor()">Email: {{ email }}</label></td>
+                </tr>
+                <input type="text" name="email" [(ngModel)]="email"/><br>
+                <tr>
+                    <td><label>Street: </label></td>
+                    <td><label *ngIf="edited" (click)="toggleEditor()">Street: {{ address.street }}</label></td>
+                </tr>
+                <input type="text" name="address.street" [(ngModel)]="address.street"/><br>
+                <tr>
+                    <td><label>City: </label></td>
+                    <td><label *ngIf="edited" (click)="toggleEditor()">City: {{ address.city }}</label></td>
+                </tr>
+                <input type="text" name="address.city" [(ngModel)]="address.city" /><br>
+                <tr>
+                    <td><label>State: </label></td>
+                    <td><label *ngIf="edited" (click)="toggleEditor()">State: {{ address.state }}</label></td>
+                </tr>
+                <input type="text" name="address.state" [(ngModel)]="address.state" /><br>
+            </form>
+        </table>
+        <button (click)=toggleEditor()> Submit </button>
+    </div>
+    <hr/>
+    <footer>
+        <p>
+            Company Confidentital<br> Avercast,LLC - All rights reserved.
+        </p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>graph</title>
+  <link rel="stylesheet" type="text/css" href="graph.component.css">
+  <script src="graph.component.ts"></script>
+  <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
+  <script>
+    angular.module('bindHtmlExample', ['ngSanitize'])
+    .controller('ExampleController', ['$scope', function($scope) {
+        $scope.myHTML =
+     'I am an <code>HTML</code>string with ' +
+     '<a href="#">links!</a> and other <em>stuff</em>';
+      }]);
+</script>
+</head>
+<body>
+  <div><hr>
+    <!--<graph type="type" [(ngModel)]="type" data="data" [(ngModel)]="data" options="options" [(ngModel)]="options" ></graph>-->
+    <!--<graph [type]="type" [data]="data" [options]="options"></graph>-->
+  </div>
+  <div ng-controller="ExampleController">
+    <p ng-bind-html="myHTML"></p>
+  </div>
+    <h1>Chart.js Demo</h1>
+      <div id="line-graph">
+        <h2>Line Graph</h2>
+        <canvas id="theChart" width="400" height="400"></canvas>
+      </div>
+      <div id="bar-graph">
+        <h2>Bar Graph</h2>
+        <canvas id="barChart"></canvas>
+      </div>
+      <div id="do-graph">
+        <h2>Doughnut Chart</h2>
+        <canvas id="doChart"></canvas>
+      </div>
+    <!--User Scripts-->
+       <!--<script src="../js/Chart.js"></script>-->
+       <hr/>
+    <footer>
+        <p>
+            Company Confidentital<br>
+            Avercast,LLC - All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>

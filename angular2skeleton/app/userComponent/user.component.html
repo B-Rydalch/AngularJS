@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>graph</title>
+    <link rel="stylesheet" type="text/css" href="user.component.css">
+</head>
+<body>
+    <div class="user">  
+        <h1>Hello {{ name }}<i class="fa fa-exclamation" aria-hidden="true"></i></h1>
+        <p>email: {{ email }} </p>
+        <p>Address: {{ address.street }}, {{ address.city}} , {{ address.state }}</p><br>
+        <p>Please visit the 'About' page to learn about this sandbox</p><br>
+        <i class="fa fa-camera-retro fa-5x"></i><br><br>
+        <button (click)="toggleHobbits()">{{ showHobbits ? "Hide Hobbits" : "Show Hobbits" }} </button>
+        <div *ngIf="showHobbits"><br>
+            <h3><u>My Hobbits</u></h3>
+            <ul>
+                <li *ngFor=" let hobbits of hobbits; let i = index">
+                    <button (click)="deleteHobbit(i)"> X </button> {{ hobbits }} 
+                </li>
+            </ul>
+            <form (submit)="addHobbit(hobbit.value)" class="addHobbits">
+                <label>Add Hobbit: </label><br />
+                <!--<input type = "text" /><br>-->
+                <input type="text" #hobbit /><br>
+            </form>
+        </div>
+    </div>
+    <hr/>
+    <footer>
+        <p>
+            Company Confidentital<br>
+            Avercast,LLC - All rights reserved.
+        </p>
+    </footer>
+</body>
+</html>
+  
